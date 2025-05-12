@@ -151,58 +151,32 @@ sections:
         # Card background color (CSS class)
         css_class: "bg-primary-700"
         css_style: ""
-  - block: contact
+  - block: markdown
     id: contact
     content:
       title: 联系我们
       subtitle: 留下您的信息，我们会尽快回复
       text: |-
-        欢迎填写下方表格与我们取得联系。无论您有任何问题、建议或合作意向，我们都将认真对待并尽快回复。
-      # Contact details
-      email: info@example.com
-      phone: 888 888 88 88
-      address:
-        street: 示例街道123号
-        city: 示例城市
-        region: 示例地区
-        postcode: '100000'
-        country: 中国
-        country_code: CN
-      # Automatically link email and phone or display as text?
-      autolink: true
-      # Email form provider
-      form:
-        provider: netlify
-        formspree:
-          id:
-        netlify:
-          # Enable CAPTCHA challenge to reduce spam?
-          captcha: true
-        # Add the required form fields
-        fields:
-          - name: 姓名
-            id: name
-            placeholder: 您的姓名
-            required: true
-          - name: 电子邮箱
-            id: email
-            placeholder: your-email@example.com
-            required: true
-          - name: 主题
-            id: subject
-            placeholder: 简短描述您的问题
-            required: true
-          - name: 留言内容
-            id: message
-            placeholder: 请详细描述您的问题或建议
-            required: true
-            type: textarea
-        submit_button:
-          text: 发送留言
-          class: 'btn btn-primary'
+        <form name="contact" method="POST" data-netlify="true">
+          <div class="mb-3">
+            <label for="name" class="form-label">姓名</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">电子邮箱</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="subject" class="form-label">主题</label>
+            <input type="text" class="form-control" id="subject" name="subject" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">留言内容</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">发送留言</button>
+        </form>
     design:
-      # Choose how many columns the section has. Valid values: '1' or '2'.
-      columns: '2'
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
 ---
