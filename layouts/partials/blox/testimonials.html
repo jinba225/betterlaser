@@ -1,0 +1,100 @@
+{{/* Testimonials Block */}}
+
+{{ $block := .Block }}
+{{ $content := $block.Content }}
+{{ $design := $block.Design }}
+
+{{ $items := $content.items }}
+
+<div class="container">
+  <div class="mx-auto max-w-screen-md text-center">
+    {{ with $content.title }}
+      <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ . | markdownify }}</h2>
+    {{ end }}
+    {{ with $content.text }}
+      <p class="mb-8 text-gray-500 dark:text-gray-400 sm:text-xl">{{ . | markdownify }}</p>
+    {{ end }}
+  </div>
+
+  {{/* Load Swiper CSS */}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  {{/* Testimonials Swiper */}}
+  <div class="swiper testimonials-swiper">
+    <div class="swiper-wrapper">
+      {{ range $items }}
+        <div class="swiper-slide">
+          <div class="mx-auto max-w-screen-md text-center">
+            <div class="mb-6 flex justify-center">
+              {{ with .image }}
+                {{ $image_src := resources.Get (path.Join "media" .) }}
+                {{ if $image_src }}
+                  {{ $image_src = $image_src.Fill "96x96 Center" }}
+                  <img class="h-24 w-24 rounded-full object-cover" src="{{ $image_src.RelPermalink }}" alt="{{ $.name }}">
+                {{ end }}
+              {{ end }}
+            </div>
+            <div class="mb-4 text-lg italic text-gray-500 dark:text-gray-400">{{ .text | markdownify }}</div>
+            <div class="text-sm font-medium text-gray-900 dark:text-white">{{ .name }}</div>
+            {{ with .role }}
+              <div class="text-sm text-gray-500 dark:text-gray-400">{{ . }}</div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+    
+    {{/* Add pagination */}}
+    <div class="swiper-pagination"></div>
+    
+    {{/* Add navigation arrows */}}
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  {{/* Load Swiper JS */}}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
+  {{/* Initialize Swiper */}}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.testimonials-swiper', {
+        // Optional parameters
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        
+        // Pagination
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });
+  </script>
+
+  {{/* Add custom styles */}}
+  <style>
+    .testimonials-swiper {
+      width: 100%;
+      padding-bottom: 50px;
+    }
+    .swiper-pagination {
+      bottom: 0;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: #4b5563;
+    }
+    .swiper-pagination-bullet-active {
+      background: #4b5563;
+    }
+  </style>
+</div>

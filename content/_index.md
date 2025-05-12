@@ -136,20 +136,6 @@ sections:
           image: "testimonial-1.jpg"
           text: "这个平台的灵活性令人印象深刻，我们能够完全按照自己的品牌风格定制网站。"
     design:
-      # 启用轮播功能
-      is_carousel: true
-      # 轮播设置
-      carousel:
-        # 自动播放
-        autoplay: true
-        # 自动播放间隔（毫秒）
-        interval: 5000
-        # 显示导航点
-        show_indicators: true
-        # 显示控制箭头
-        show_arrows: true
-        # 每次显示的项目数
-        items_per_slide: 1
       spacing:
         # Reduce bottom spacing so the testimonial appears vertically centered between sections
         padding: ["6rem", 0, "6rem", 0]
