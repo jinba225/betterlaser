@@ -115,30 +115,18 @@ sections:
       css_class: "bg-gray-100 dark:bg-gray-900"
   - block: testimonials
     content:
-      title: "客户评价"
-      text: "听听我们的客户怎么说"
+      title: ""
+      text: ""
       items:
-        - name: "张先生"
-          role: "科技公司CEO"
+        - name: "Hugo Smith"
+          role: "Marketing Executive at X"
           # Upload image to `assets/media/` and reference the filename here
           image: "testimonial-1.jpg"
           text: "Awesome, so easy to use and saved me so much work with the swappable pre-designed sections!"
-        - name: "李女士"
-          role: "营销总监"
-          image: "testimonial-1.jpg"
-          text: "这个网站构建工具非常直观，让我们的团队能够快速创建专业的网页，节省了大量时间！"
-        - name: "王教授"
-          role: "研究机构负责人"
-          image: "testimonial-1.jpg"
-          text: "作为一个非技术人员，我很惊讶自己能够如此轻松地建立和维护一个高质量的网站。"
-        - name: "刘总监"
-          role: "制造业企业家"
-          image: "testimonial-1.jpg"
-          text: "这个平台的灵活性令人印象深刻，我们能够完全按照自己的品牌风格定制网站。"
     design:
       spacing:
         # Reduce bottom spacing so the testimonial appears vertically centered between sections
-        padding: ["6rem", 0, "6rem", 0]
+        padding: ["6rem", 0, 0, 0]
   - block: cta-card
     content:
       title: Build your future-proof website
@@ -157,25 +145,66 @@ sections:
       title: 联系我们
       subtitle: 留下您的信息，我们会尽快回复
       text: |-
-        <form name="contact" method="POST" data-netlify="true">
-          <div class="mb-3">
-            <label for="name" class="form-label">姓名</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+              <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label">姓名</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">电子邮箱</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label">主题</label>
+                  <input type="text" class="form-control" id="subject" name="subject" required>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">留言内容</label>
+                  <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary px-4 py-2">发送留言</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">电子邮箱</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
-          <div class="mb-3">
-            <label for="subject" class="form-label">主题</label>
-            <input type="text" class="form-control" id="subject" name="subject" required>
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">留言内容</label>
-            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">发送留言</button>
-        </form>
+        </div>
+        
+        <style>
+          /* 自定义表单样式 */
+          .contact-form {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+          }
+          
+          /* 响应式调整 */
+          @media (max-width: 768px) {
+            .contact-form {
+              padding: 0 15px;
+            }
+          }
+          
+          /* 输入框样式增强 */
+          .contact-form .form-control {
+            border-radius: 4px;
+            padding: 10px 15px;
+          }
+          
+          /* 按钮样式增强 */
+          .contact-form .btn-primary {
+            border-radius: 4px;
+            transition: all 0.3s ease;
+          }
+          
+          .contact-form .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          }
+        </style>
     design:
       # Section background color (CSS class)
       css_class: "bg-gray-100 dark:bg-gray-900"
