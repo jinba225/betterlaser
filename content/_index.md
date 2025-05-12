@@ -115,18 +115,44 @@ sections:
       css_class: "bg-gray-100 dark:bg-gray-900"
   - block: testimonials
     content:
-      title: ""
-      text: ""
+      title: "客户评价"
+      text: "听听我们的客户怎么说"
       items:
-        - name: "Hugo Smith"
-          role: "Marketing Executive at X"
+        - name: "张先生"
+          role: "科技公司CEO"
           # Upload image to `assets/media/` and reference the filename here
           image: "testimonial-1.jpg"
           text: "Awesome, so easy to use and saved me so much work with the swappable pre-designed sections!"
+        - name: "李女士"
+          role: "营销总监"
+          image: "testimonial-1.jpg"
+          text: "这个网站构建工具非常直观，让我们的团队能够快速创建专业的网页，节省了大量时间！"
+        - name: "王教授"
+          role: "研究机构负责人"
+          image: "testimonial-1.jpg"
+          text: "作为一个非技术人员，我很惊讶自己能够如此轻松地建立和维护一个高质量的网站。"
+        - name: "刘总监"
+          role: "制造业企业家"
+          image: "testimonial-1.jpg"
+          text: "这个平台的灵活性令人印象深刻，我们能够完全按照自己的品牌风格定制网站。"
     design:
+      # 启用轮播功能
+      is_carousel: true
+      # 轮播设置
+      carousel:
+        # 自动播放
+        autoplay: true
+        # 自动播放间隔（毫秒）
+        interval: 5000
+        # 显示导航点
+        show_indicators: true
+        # 显示控制箭头
+        show_arrows: true
+        # 每次显示的项目数
+        items_per_slide: 1
       spacing:
         # Reduce bottom spacing so the testimonial appears vertically centered between sections
-        padding: ["6rem", 0, 0, 0]
+        padding: ["6rem", 0, "6rem", 0]
   - block: cta-card
     content:
       title: Build your future-proof website
