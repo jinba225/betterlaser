@@ -11,12 +11,13 @@
             {{ if eq $logoExt `.svg` }}
               {{- $logo.Content | safeHTML -}}
             {{else}}
-              {{ $logo_img := ($logo.Process "Fill 120x120 webp Center") }}
-              <div class="logo-container w-[120px] h-[120px] md:w-[150px] md:h-[150px] overflow-hidden flex items-center justify-center">
+              {{ $logo_img := ($logo.Process "Fill 200x200 webp Center") }}  <!-- 增加处理尺寸 -->
+              <div class="logo-container w-[160px] h-[160px] md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px] 
+                   overflow-hidden flex items-center justify-center transition-all duration-300">  <!-- 增加尺寸和过渡效果 -->
                 <img
                   fetchpriority="high"
                   decoding="async"
-                  class="w-full h-full object-contain"
+                  class="w-full h-full object-contain hover:scale-105"  <!-- 添加悬停效果 -->
                   src="{{ $logo_img.RelPermalink }}"
                   alt="{{ site.Title }}"
                 >
