@@ -11,14 +11,19 @@
             {{ if eq $logoExt `.svg` }}
               {{- $logo.Content | safeHTML -}}
             {{else}}
-              {{ $logo_img := ($logo.Process "Fill 77x77 webp") }}
-              <img
-                fetchpriority="high"
-                decoding="async"
-                class=""
-                width="77"
-                height="77"
-                style="width:77px !important; height:77px !important;"
+              {{ $logo_img := ($logo.Process "Fill 77x77 webp Center") }}
+              <div style="width:77px; height:77px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+                <img
+                  fetchpriority="high"
+                  decoding="async"
+                  class=""
+                  width="77"
+                  height="77"
+                  style="width:77px !important; height:77px !important; max-width:none !important; max-height:none !important; min-width:77px !important; min-height:77px !important;"
+                  src="{{ $logo_img.RelPermalink }}"
+                  alt="{{ site.Title }}"
+                >
+              </div>
                 src="{{ $logo_img.RelPermalink }}"
                 alt="{{ site.Title }}" />
             {{end}}
