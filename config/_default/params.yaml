@@ -37,6 +37,8 @@ header:
       text: ""
       # Logo filename in `assets/media/` folder
       filename: "LOGO.png"
+      width: 370
+      height: 70
     button:
       enable: true
       text: "Get Started"
@@ -47,7 +49,7 @@ header:
 # Site footer
 footer:
   copyright:
-    notice: '© {year} My Company'
+    notice: '© {year} Better Laser'
 
 # Localization
 locale:
